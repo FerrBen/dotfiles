@@ -1,0 +1,104 @@
+enable-normalization-flatten-containers = false
+enable-normalization-opposite-orientation-for-nested-containers = false
+
+# Mouse follows focus when focused monitor changes
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+
+default-root-container-orientation = 'auto'
+
+gaps.inner.horizontal = 10
+gaps.inner.vertical =   10
+gaps.outer.left =       15
+gaps.outer.bottom =     15
+gaps.outer.top =        15
+gaps.outer.right =      15
+
+[mode.main.binding]
+    # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
+    alt-enter = '''exec-and-forget osascript -e '
+    tell application "Terminal"
+        do script
+        activate
+    end tell'
+    '''
+    
+
+    # i3 wraps focus by default
+    alt-period =         'focus --boundaries-action wrap-around-the-workspace left'
+    alt-h =         'focus --boundaries-action wrap-around-the-workspace down'
+    alt-t =         'focus --boundaries-action wrap-around-the-workspace up'
+    alt-s = 'focus --boundaries-action wrap-around-the-workspace right'
+
+    alt-shift-period = 'move left'
+    alt-shift-h = 'move down'
+    alt-shift-t = 'move up'
+    alt-shift-s  = 'move right'
+
+    # Consider using 'join-with' command as a 'split' replacement if you want to enable
+    # normalizations
+    alt-minus = 'split horizontal'
+    alt-v = 'split vertical'
+
+    alt-f = 'fullscreen'
+    alt-tab = 'workspace-back-and-forth'
+
+    alt-l = 'layout v_accordion' # 'layout stacking' in i3
+    alt-d = 'layout h_accordion' # 'layout tabbed' in i3
+    alt-w = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
+
+    alt-shift-f = 'layout floating tiling' # 'floating toggle' in i3
+
+    # Not supported, because this command is redundant in AeroSpace mental model.
+    # See: https://nikitabobko.github.io/AeroSpace/guide#floating-windows
+    #alt-space = 'focus toggle_tiling_floating'
+
+    # `focus parent`/`focus child` are not yet supported, and it's not clear whether they
+    # should be supported at all https://github.com/nikitabobko/AeroSpace/issues/5
+    # alt-a = 'focus parent'
+
+    alt-1 = 'workspace 1'
+    alt-2 = 'workspace 2'
+    alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
+    alt-7 = 'workspace 7'
+    alt-8 = 'workspace 8'
+    alt-9 = 'workspace 9'
+    alt-0 = 'workspace 10'
+
+    alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+    alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+  alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+    alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+    alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+    alt-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
+    alt-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
+    alt-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
+    alt-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
+    alt-shift-0 = 'move-node-to-workspace 10 --focus-follows-window'
+
+
+    alt-shift-c = 'reload-config'
+    alt-r = 'mode resize'
+
+    [mode.resize.binding]
+    period = 'resize width -50'
+    h = 'resize height +50'
+    t = 'resize height -50'
+    s = 'resize width +50'
+    enter = 'mode main'
+    esc = 'mode main'
+
+    [workspace-to-monitor-force-assignment]
+    1 = 'secondary'                  
+    2 = 'secondary'                  
+    3 = 'secondary'                  
+    4 = 'secondary'                   
+    5 = 'secondary' 
+    6 = 'main'
+    7 = 'main'
+    8 = 'main'
+    9 = 'main'
+    0 = 'main'
