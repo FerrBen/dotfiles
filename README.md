@@ -13,6 +13,7 @@ Ensure you have the following software installed before proceeding:
 - [Wezterm](https://wezfurlong.org/wezterm/)
 - [tmux](https://github.com/tmux/tmux/wiki)
 - [Aerospace](https://github.com/nikitabobko/AeroSpace)
+- [Neovim](https://neovim.io/)
 
 ## Installation
 
@@ -33,11 +34,15 @@ Ensure you have the following software installed before proceeding:
 
 3.  **Stow the configurations:**
 
-    Navigate to the `dotfiles` directory and use `stow` to create the necessary symlinks in your home directory.
+    Navigate to the `dotfiles` directory and use `stow` to create the necessary symlinks. Note that Neovim's configuration is stowed to a different target directory.
 
     ```bash
     cd ~/dotfiles
-    stow *
+    # Stow all packages that live in the home directory
+    stow aerospace git tmux wezterm zsh
+
+    # Stow nvim to the .config directory
+    stow -t ~/.config nvim
     ```
 
-    This command will symlink the configurations for all the packages (zsh, git, tmux, etc.) into your home directory.
+    This will symlink the configurations for all the packages to their correct locations.
